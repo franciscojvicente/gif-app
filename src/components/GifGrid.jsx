@@ -9,7 +9,8 @@ const GIfGrid = ({category}) => {
     console.log(data);
   return (
     <div>
-        <h3 className='gif-title'>{category}</h3>
+        {category ? <h3 className='gif-title'>Los 10 mejores GIFs sobre {category}</h3> : ""}
+        {/* <h3 className='gif-title'>Los 10 mejores GIFs sobre {category}</h3> */}
         <div className='container'>
             {loading ? <LoadingGif /> : ""}
             {

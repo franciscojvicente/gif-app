@@ -4,7 +4,7 @@ import { BarLoader } from 'react-spinners'
 
 const LoadingGif = () => {
   return (
-    <BarLoader color="#36d7b7" />
+    <BarLoader color="#000000" />
   )
 }
 

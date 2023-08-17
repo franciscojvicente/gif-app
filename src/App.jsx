@@ -27,11 +27,11 @@ function App() {
       <h1>Bienvenido a GIFs App</h1>
       <h3>¡Somos el buscador de GIFs más grande del mundo!</h3>
       <AddCategory setCategories ={setCategories}  />
-      <button className='cleaner' onClick={() => setCategories([""])}>Limpiar GIFs</button>
+      <button className='cleaner' onClick={() => {setCategories([""]); setInputValue("");}} >Limpiar GIFs</button>
       <ol>
         {categories.map((category) => (
           <GIfGrid category= {category} key = {category} />
-        ))} 
+        ))}
       </ol>
     </>
   )

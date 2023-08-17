@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 
 const AddCategory = ({setCategories}) => {
     const [inputValue, setInputValue] = useState("");
+    const [previousSearches, setPreviousSearches] = useState([]);
 
     // handlers son las funciones que se ejecutan en los eventos
 
@@ -12,20 +13,15 @@ const AddCategory = ({setCategories}) => {
             return alert("Debes buscar correctamente")
         }
 
-        // const isGifSearched = setCategories.find((input) => {
-        //     if (inputValue === input) {
-        //         return true;
-        //     } else {
-        //         return false;
-        //     }
-        // })
-        // if (isGifSearched == true) {
-        //     return(alert("Ya se ha realizado dicha busqueda. Intente nuevamente"));
-        // }
+        if (previousSearches.includes(inputValue)) {
+          return alert(`Ya se realizó la búsqueda sobre "${inputValue}"`);
+        }
 
 
         setCategories((data) => [inputValue, ...data] ) // de esa manera solo queda el que busco, si quiero que se queden las busquedas anteriores [inputValue, ...data]
+        setPreviousSearches((prevSearches) => [inputValue, ...prevSearches]);
         setInputValue("")
+
     }
 
   return (
